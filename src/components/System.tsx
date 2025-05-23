@@ -1,60 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { withAuthenticator, Button, Heading, Text } from '@aws-amplify/ui-react';
-import { getBackendUrl } from '../services/debug-service';
+import { Button } from '@aws-amplify/ui-react';
+import { getBackendUrl, getEcho } from '../services/debug-service';
 
-export const Home = () => {
-  const [echo, setEcho] = useState('');
+const System = () => {
+  const [echo, setEcho] = useState<string | null>(null);
 
   const testConnection = async () => {
-     
-    // try {
-    //   const data = await getEcho({ "message": "ok" });
-
-    //   console.log(data)
-    //   setEcho(data.message);
-    // } catch (err) {
-    //   setEcho("error: " + err.message);
-    //   return;
-    // }
-}
-
+    try {
+      const data = await getEcho( "ok");
+      setEcho(data);
+    } catch (err: any) {
+      setEcho("error: " + (err?.message || err));
+    }
+  };
 
   useEffect(() => {
-    // declare the data fetching function
-    const fetchData = async () => {
-     
     testConnection();
-    
-    }
-
-    // call the function
-    fetchData()
-      // make sure to catch any error
-      .catch(console.error);
-  }, [])
-
-
+  }, []);
 
   const refresh = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    setEcho('');
+    setEcho(null);
     testConnection();
+  };
 
-  }
-
-
-return (
-  <div>
-
-    <p>Backend: {getBackendUrl()} </p>
-    <p>Connection: {echo === null ? "testing connection" : echo} </p>
-    <Button className="btn-submit" onClick={e => refresh(e)}>Reconnect</Button>
-
-  </div>
-);
+  return (
+    <div>
+      <p>Backend: {getBackendUrl()} </p>
+      <p>Connection: {echo === null ? "testing connection" : echo} </p>
+      <Button className="btn-submit" onClick={refresh}>Reconnect</Button>
+    </div>
+  );
 };
 
-
-export default Home;
+export default System;
 

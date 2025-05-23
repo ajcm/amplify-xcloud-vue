@@ -1,4 +1,4 @@
-import { Link, View, Text } from '@aws-amplify/ui-react';
+import { Link, View } from '@aws-amplify/ui-react';
 
 export default () => {
   return (

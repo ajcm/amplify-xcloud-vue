@@ -6,20 +6,20 @@ import One from "./components/One"
 import Two from "./components/Two"
 
 
+import MainGrid from "./layout/MainGrid"
 
 function App() {
 
 
   return (
-    <div>
-      <h3>Links</h3>
+
       <Routes>
-        <Route path="" element={<One />} />
-        <Route path="/one" element={<One />} />
-        <Route path="/two" element={<Two />} />
+        <Route path="/" element={<MainGrid><Home /></MainGrid>} />
+        <Route path="/one" element={<MainGrid><One /></MainGrid>} />
+        <Route path="/two" element={<MainGrid><Two /></MainGrid>} />
       </Routes>
-      <Home></Home>
-    </div>
+  
+
   );
 }
 
