@@ -1,35 +1,29 @@
-import { Flex, View, Text } from '@aws-amplify/ui-react';
-
-
+import {  Text } from '@aws-amplify/ui-react';
 
 
 const DefaultFlexExample = () => {
 
-
   return (
-    <Flex >
-
+    <div style={{  height: '1.5rem', width: '200vw' }} >
+  
       <Text
         variation="primary"
-        as="p"
+      //  as="p"
         lineHeight="1.5em"
         fontWeight={750}
-        fontSize="1.5em"
+        fontSize="1em"
         fontStyle="normal"
         textDecoration="none"
-        color={'white'}
-        width="30vw"
+        margin={'10px 10px 10px 10px '}
+     //   color={'white'}
+         style={{color: 'white', textDecoration: 'none'}}
+
+  
       >
         xCloud
       </Text>
 
-      {/* <Button backgroundColor={tokens.colors.pink[10]}>Option 1</Button>
-      <Button backgroundColor={tokens.colors.pink[20]}>Option 2</Button> */}
-
-      <View style={{ marginLeft: 'auto' }} >
-        LoginButton
-      </View>
-    </Flex>
+    </div>
   );
 };
 

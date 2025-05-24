@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 
 const ToolbarAuth = () => {
   return (
-    <Flex gap={'2rem'} padding={'1rem'} justifyContent={'space-between'} backgroundColor={'black'} >
-      <Link  style={{color: 'white', textDecoration: 'none'}} to="/">Home- </Link>
-      <Link  style={{color: 'black', textDecoration: 'none'}} to="/todo">Todo </Link>
-      <Link  style={{color: 'black', textDecoration: 'none'}} to="/note">Notes </Link>
-      <Link  style={{color: 'white', textDecoration: 'none'}} to="/wiki">Wiki </Link>     
+    <Flex gap={'2rem'} marginLeft={'10px'} justifyContent={'space-between'} backgroundColor={'black'} >
+      <Link  style={{color: 'black', textDecoration: 'none'}} to="/">Home</Link> &nbsp;&nbsp;&nbsp;
+      <Link  style={{color: 'black', textDecoration: 'none'}} to="/todo">Todo </Link>&nbsp;&nbsp;&nbsp;
+      <Link  style={{color: 'black', textDecoration: 'none'}} to="/note">Notes </Link>&nbsp;&nbsp;&nbsp;
+      <Link  style={{color: 'black', textDecoration: 'none'}} to="/wiki">Wiki </Link>     
       {/* <Link  style={{color: 'white', textDecoration: 'none'}} to="/storage">Storage </Link>   */}
     </Flex>
   );
