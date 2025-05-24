@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import { Authenticator } from '@aws-amplify/ui-react';
 import { fetchAuthSession, AuthSession } from "@aws-amplify/auth";
 import MyButton from './TestGet';
+import { Route, Routes } from 'react-router-dom';
+
+import One from "./components/One"
+import Two from "./components/Two"
+import Three from "./components/Three"
+
+import MainGrid from "./layout/MainGrid"
 
 export default function App() {
   const [session, setSession] = useState<AuthSession | null>(null);
@@ -23,19 +30,17 @@ export default function App() {
     <div>
       <Authenticator>
         {({ signOut, user }) => (
-          <main>
-            <h1>Hello {user?.username}</h1>
-            <h2>{user?.signInDetails?.loginId}</h2>
-            <button onClick={signOut}>Sign out</button>
-            <div>
-              {session?.tokens?.accessToken
-                ? JSON.stringify(session.tokens.accessToken.toString())
-                : 'Loading...'}
-            </div>
-            <div>
-              <MyButton token={session?.tokens?.accessToken?.toString() || ''} />
-            </div>
-          </main>
+          <>
+            <Routes>
+        <Route path="/" element={<MainGrid><One /></MainGrid>} />
+        <Route path="/one" element={<MainGrid><One /></MainGrid>} />
+        <Route path="/two" element={<MainGrid><Two /></MainGrid>} />
+        <Route path="/three" element={<Three/>} />
+      </Routes>
+           <button onClick={signOut}>Logout
+       
+      </button>
+      </>
         )}
       </Authenticator>
     </div>
